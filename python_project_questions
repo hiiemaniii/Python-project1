@@ -1,0 +1,267 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMb3KzrqNqDw7KUlv8pHQ7j",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/hiiemaniii/Python-project1/blob/main/python_project_questions\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "-sy7lq6Y0D0X",
+        "outputId": "c179f41a-4cb5-4188-c5ba-cc5c37f8274d"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter correct PIN:1234\n",
+            " LOGGED IN SUCCESSFULLY\n",
+            "\n",
+            "\n",
+            "\n",
+            " ##**##**OPTIONS**##**##\n",
+            "          1.Balance\n",
+            "          2.Deposit\n",
+            "          3.Withdraw\n",
+            "          4.Exit\n",
+            "\n",
+            "Enter your choice:1\n",
+            "\n",
+            "Balance: ₹10000\n",
+            "\n",
+            "\n",
+            " ##**##**OPTIONS**##**##\n",
+            "          1.Balance\n",
+            "          2.Deposit\n",
+            "          3.Withdraw\n",
+            "          4.Exit\n",
+            "\n",
+            "Enter your choice:2\n",
+            "\n",
+            "Enter amount you want to deposit: 400\n",
+            " New Balance: ₹10400\n",
+            "\n",
+            "\n",
+            " ##**##**OPTIONS**##**##\n",
+            "          1.Balance\n",
+            "          2.Deposit\n",
+            "          3.Withdraw\n",
+            "          4.Exit\n",
+            "\n",
+            "Enter your choice:3\n",
+            "\n",
+            "Enter amount to withdraw : 50\n",
+            "New balance :  ₹10350\n",
+            "\n",
+            "\n",
+            " ##**##**OPTIONS**##**##\n",
+            "          1.Balance\n",
+            "          2.Deposit\n",
+            "          3.Withdraw\n",
+            "          4.Exit\n",
+            "\n",
+            "Enter your choice:4\n",
+            "\n",
+            " Here is all your history \n",
+            "1. Deposit - ₹400\n",
+            "2. Withdraw - ₹50\n",
+            "\n",
+            "THANK YOU\n",
+            "    :)     \n"
+          ]
+        }
+      ],
+      "source": [
+        "# PROJECT:- ATM SIMULATOR\n",
+        "cp=\"1234\"\n",
+        "bal=10000\n",
+        "at=0\n",
+        "m=\"not logged in\"\n",
+        "while at<3:\n",
+        "  p=input(\"Enter correct PIN:\")\n",
+        "  if p!=cp:\n",
+        "    at+=1\n",
+        "    if at==3:\n",
+        "      print(\"Card blocked\")\n",
+        "      break\n",
+        "    print(\"Wrong PIN ,\",\"Attempt left : \",3-at)\n",
+        "  else:\n",
+        "    print(\" LOGGED IN SUCCESSFULLY\")\n",
+        "    m=\"logged in\"\n",
+        "    break\n",
+        "print()\n",
+        "l=[]\n",
+        "while m==\"logged in\" :\n",
+        "  print()\n",
+        "  print()\n",
+        "  print(\"\"\" ##**##**OPTIONS**##**##\n",
+        "          1.Balance\n",
+        "          2.Deposit\n",
+        "          3.Withdraw\n",
+        "          4.Exit\"\"\")\n",
+        "  print()\n",
+        "  o=int(input(\"Enter your choice:\"))\n",
+        "  print()\n",
+        "  if o==1:\n",
+        "    print(\"Balance:\",\"₹\"+str(bal))\n",
+        "  elif o==2:\n",
+        "    n=int(input(\"Enter amount you want to deposit: \"))\n",
+        "    if n>0:\n",
+        "      bal+=n\n",
+        "      l.append(\"+\"+str(n))\n",
+        "      print(\" New Balance:\",\"₹\"+str(bal))\n",
+        "  elif o==3:\n",
+        "    n=int(input(\"Enter amount to withdraw : \"))\n",
+        "    if bal>n:\n",
+        "      bal-=n\n",
+        "      l.append(\"-\"+str(n))\n",
+        "      print(\"New balance : \",\"₹\"+str(bal))\n",
+        "    else:\n",
+        "      print(\"Insufficient Balance :(\")\n",
+        "\n",
+        "  elif o==4:\n",
+        "    print(\" Here is all your history \")\n",
+        "    for i in range(len(l)):\n",
+        "      if l[i].startswith(\"+\"):\n",
+        "        print(str(i+1)+\".\",\"Deposit -\",\"₹\"+l[i].replace(\"+\",\"\"))\n",
+        "      elif l[i].startswith(\"-\"):\n",
+        "        print(str(i+1)+\".\",\"Withdraw -\",\"₹\"+l[i].replace(\"-\",\"\"))\n",
+        "\n",
+        "    print()\n",
+        "    print(\"\"\"THANK YOU\n",
+        "    :)     \"\"\")\n",
+        "    break\n",
+        "\n",
+        "  else:\n",
+        "    print(\"Invalid Choice!!\")\n",
+        "    print(\"Enter again!\")\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#STUDENT MARKS MANAGER\n",
+        "st={\"Aman\":[85,90,78],\"Riya\":[92,88,95],\"Zoya\":[70,65,80]}\n",
+        "while True:\n",
+        "    print()\n",
+        "    print(\"\"\"##**OPTIONS##**\n",
+        "           1.Add Student\n",
+        "           2.View all\n",
+        "           3.Show topper\n",
+        "           4.Exit\"\"\")\n",
+        "    print()\n",
+        "    o=int(input(\"Enter your choice: \"))\n",
+        "    if o==1:\n",
+        "        name=input(\"Enter your name: \")\n",
+        "        print(\"Now Enter your marks subjectwise: \")\n",
+        "        x,y,z=int(input(\"English: \")),int(input(\"Hindi: \")),int(input(\"Computer Science: \"))\n",
+        "        if 0<x<=100 and 0<y<=100 and 0<z<=100:\n",
+        "            l=[x,y,z]\n",
+        "            if name not in st:\n",
+        "                st.setdefault(name,l)\n",
+        "            else:\n",
+        "                print(\"Student already exist\")\n",
+        "        else:\n",
+        "            print(\"Invalid marks, try again\")\n",
+        "    elif o==2:\n",
+        "        print()\n",
+        "        for i,j in st.items():\n",
+        "            print(i,\":\",j)\n",
+        "    elif o==3:\n",
+        "        h=0\n",
+        "        t=\"\"\n",
+        "        for i,j in st.items():\n",
+        "            if sum(j)/3>h:\n",
+        "                h=sum(j)/3\n",
+        "                t=i\n",
+        "        print(\"Topper:\",t)\n",
+        "    elif o==4:\n",
+        "      print(\"so,here are  name of all student with grades\")\n",
+        "      for i,j in st.items():\n",
+        "            gr=sum(j)/3\n",
+        "            if gr>85:\n",
+        "                print(i,f\"{gr:2f}\",\"A\")\n",
+        "            elif gr>70 and gr<85:\n",
+        "                print(i,f\"{gr:2f}\",\"B\")\n",
+        "            elif gr>50 and gr<70:\n",
+        "                print(i,f\"{gr:2f}\",\"C\")\n",
+        "            else:\n",
+        "                print(i,f\"{gr:2f}\",\"C\")\n",
+        "\n",
+        "      print(\"\"\"Goodbye!\n",
+        "      :)\"\"\")\n",
+        "      break\n",
+        "    else:\n",
+        "      print(\"\"\" Invalid Choice\n",
+        "      Enter again\"\"\")\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "a7sk4o0J-NSY",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "f18206bb-7591-4520-ad3e-b1c0debbc96b"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "metadata": {
+            "tags": null
+          },
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "\n",
+            "##**OPTIONS##**\n",
+            "           1.Add Student\n",
+            "           2.View all\n",
+            "           3.Show topper\n",
+            "           4.Exit\n",
+            "\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "q_8POhLr0MTO"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
